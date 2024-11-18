@@ -21,7 +21,7 @@ app.get('/api/message', (req, res) => {
 });
 
 // POST route
-app.post('/api/message', (req, res) => {
+app.post('/api/echo', (req, res) => {
   const { message } = req.body; // Extract 'message' from the request body
   if (!message) {
     return res.status(400).json({ error: 'Message is required in the body' });
@@ -29,7 +29,7 @@ app.post('/api/message', (req, res) => {
 
   // Return the message back to the client
   res.json({ receivedMessage: message, reply: `You said: "${message}"` });
-  console.log(`POST /api/message - Received: ${message}`);
+  console.log(`POST /api/echo - Received: ${message}`);
 });
 
 // Start the server
